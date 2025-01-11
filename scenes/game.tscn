@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://df4juyfmtlpgt"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_3qaq1"]
+[ext_resource type="Texture2D" uid="uid://d2rirbrbwkidw" path="res://sprites/background-day.png" id="1_sm7n6"]
+[ext_resource type="PackedScene" uid="uid://dohn3xpim2vik" path="res://scenes/bird.tscn" id="1_y6xvf"]
+[ext_resource type="PackedScene" uid="uid://bx23aad16pfam" path="res://scenes/ground.tscn" id="3_1v478"]
+[ext_resource type="PackedScene" uid="uid://djiw60xnshh2s" path="res://scenes/killzone.tscn" id="4_kvfe1"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="6_fvghm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y26tk"]
+normal = Vector2(0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_r80kc"]
+font_names = PackedStringArray("Bauhaus 93")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3qaq1")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(144, 256)
+texture = ExtResource("1_sm7n6")
+
+[node name="Bird" parent="." instance=ExtResource("1_y6xvf")]
+position = Vector2(144, 256)
+
+[node name="Ground" parent="." instance=ExtResource("3_1v478")]
+
+[node name="Ceiling2" parent="." instance=ExtResource("4_kvfe1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling2"]
+shape = SubResource("WorldBoundaryShape2D_y26tk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 288.0
+offset_bottom = 82.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_r80kc")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_fvghm")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

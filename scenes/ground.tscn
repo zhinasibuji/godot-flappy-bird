@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx23aad16pfam"]
+
+[ext_resource type="Texture2D" uid="uid://nk8irttyjkav" path="res://sprites/base.png" id="1_4tlxf"]
+[ext_resource type="Script" path="res://scripts/ground.gd" id="1_rqe37"]
+[ext_resource type="PackedScene" uid="uid://djiw60xnshh2s" path="res://scenes/killzone.tscn" id="2_uyqln"]
+
+[sub_resource type="Animation" id="Animation_cb5yb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 400)]
+}
+
+[sub_resource type="Animation" id="Animation_5eely"]
+resource_name = "move"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 400), Vector2(-48, 400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tmpru"]
+_data = {
+"RESET": SubResource("Animation_cb5yb"),
+"move": SubResource("Animation_5eely")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cobkv"]
+size = Vector2(336, 112)
+
+[node name="Ground" type="Node2D"]
+position = Vector2(0, 400)
+script = ExtResource("1_rqe37")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(168, 56)
+texture = ExtResource("1_4tlxf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tmpru")
+}
+autoplay = "move"
+
+[node name="Killzone" parent="." instance=ExtResource("2_uyqln")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(168, 56)
+shape = SubResource("RectangleShape2D_cobkv")

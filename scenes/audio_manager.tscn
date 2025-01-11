@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0p2rvvo7h4u2"]
+
+[ext_resource type="AudioStream" uid="uid://t5ky2nepvs0j" path="res://audio/wing.ogg" id="1_13m4v"]
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_wjbkt"]
+[ext_resource type="AudioStream" uid="uid://bpo6hqrkajtbn" path="res://audio/die.ogg" id="2_ionfn"]
+[ext_resource type="AudioStream" uid="uid://0e6wlj30b4pu" path="res://audio/hit.ogg" id="3_dku41"]
+[ext_resource type="AudioStream" uid="uid://bei2hvxpcbmq3" path="res://audio/point.ogg" id="4_y3if7"]
+[ext_resource type="AudioStream" uid="uid://d3kf652yyjjtl" path="res://audio/swoosh.ogg" id="5_s3usi"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_wjbkt")
+
+[node name="wing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_13m4v")
+
+[node name="die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ionfn")
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dku41")
+
+[node name="point" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_y3if7")
+
+[node name="swoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_s3usi")
