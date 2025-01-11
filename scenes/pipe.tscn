@@ -41,5 +41,3 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
 position = Vector2(0, 225)
 shape = SubResource("RectangleShape2D_w8idy")
-
-[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

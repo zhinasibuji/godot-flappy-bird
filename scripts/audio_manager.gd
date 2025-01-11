@@ -1,5 +1,5 @@
 extends Node
 
-func play(name: String):
-	var sfx = find_child(name)
+func play(sfx_name: String):
+	var sfx = find_child(sfx_name)
 	sfx.play()
