@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://62yq8k736v4t"]
+[gd_scene load_steps=6 format=3 uid="uid://62yq8k736v4t"]
 
 [ext_resource type="Script" path="res://scripts/pipe.gd" id="1_1arbw"]
 [ext_resource type="Texture2D" uid="uid://bv5qsbuissg4o" path="res://sprites/pipe-green.png" id="1_fk5bu"]
 [ext_resource type="PackedScene" uid="uid://djiw60xnshh2s" path="res://scenes/killzone.tscn" id="2_b1jxy"]
-[ext_resource type="Script" path="res://scripts/score_area.gd" id="4_a3vi3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dy2p"]
 size = Vector2(48, 320)
@@ -38,10 +37,9 @@ shape = SubResource("RectangleShape2D_6dy2p")
 
 [node name="ScoreArea" type="Area2D" parent="."]
 collision_mask = 2
-script = ExtResource("4_a3vi3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
 position = Vector2(0, 225)
 shape = SubResource("RectangleShape2D_w8idy")
 
-[connection signal="body_entered" from="ScoreArea" to="ScoreArea" method="_on_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
