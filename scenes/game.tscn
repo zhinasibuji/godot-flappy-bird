@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://df4juyfmtlpgt"]
+[gd_scene load_steps=9 format=3 uid="uid://df4juyfmtlpgt"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_3qaq1"]
 [ext_resource type="Texture2D" uid="uid://d2rirbrbwkidw" path="res://sprites/background-day.png" id="1_sm7n6"]
 [ext_resource type="PackedScene" uid="uid://dohn3xpim2vik" path="res://scenes/bird.tscn" id="1_y6xvf"]
 [ext_resource type="PackedScene" uid="uid://bx23aad16pfam" path="res://scenes/ground.tscn" id="3_1v478"]
 [ext_resource type="PackedScene" uid="uid://djiw60xnshh2s" path="res://scenes/killzone.tscn" id="4_kvfe1"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="6_grqcp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y26tk"]
 normal = Vector2(0, 1)
@@ -47,5 +48,6 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("6_grqcp")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,7 @@
 extends Area2D
 
 func _on_body_entered(_body: Node2D) -> void:
-	if not GameManager.gameover:
-		AudioManager.play("hit")
-		GameManager.gameover = true
+	if not Global.gameover:
+		Global.play_sfx("hit")
+		Global.gameover = true
  
