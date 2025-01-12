@@ -7,7 +7,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not GameManager.dead :
+	if not GameManager.gameover :
 		position.x -= delta * 200
 		if position.x < -20:
 			queue_free()

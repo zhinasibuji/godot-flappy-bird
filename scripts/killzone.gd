@@ -1,7 +1,7 @@
 extends Area2D
 
 func _on_body_entered(_body: Node2D) -> void:
-	if not GameManager.dead:
+	if not GameManager.gameover:
 		AudioManager.play("hit")
-		GameManager.dead = true
+		GameManager.gameover = true
  

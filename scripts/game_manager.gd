@@ -1,3 +1,3 @@
 extends Node
 
-var dead = false
+var gameover = false
