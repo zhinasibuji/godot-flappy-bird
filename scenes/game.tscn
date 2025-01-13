@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://df4juyfmtlpgt"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_3qaq1"]
-[ext_resource type="Texture2D" uid="uid://d2rirbrbwkidw" path="res://sprites/background-day.png" id="1_sm7n6"]
 [ext_resource type="PackedScene" uid="uid://dohn3xpim2vik" path="res://scenes/bird.tscn" id="1_y6xvf"]
+[ext_resource type="PackedScene" uid="uid://e3tua8y35u3" path="res://scenes/background.tscn" id="2_4cn1f"]
 [ext_resource type="PackedScene" uid="uid://bx23aad16pfam" path="res://scenes/ground.tscn" id="3_1v478"]
 [ext_resource type="PackedScene" uid="uid://djiw60xnshh2s" path="res://scenes/killzone.tscn" id="4_kvfe1"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="6_grqcp"]
@@ -16,10 +16,7 @@ font_names = PackedStringArray("Bauhaus 93")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3qaq1")
 
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(144, 256)
-texture = ExtResource("1_sm7n6")
+[node name="Background" parent="." instance=ExtResource("2_4cn1f")]
 
 [node name="Bird" parent="." instance=ExtResource("1_y6xvf")]
 position = Vector2(144, 256)
