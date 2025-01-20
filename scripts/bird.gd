@@ -7,8 +7,3 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and not Global.gameover:
 		Global.play_sfx("wing")
 		linear_velocity.y = JUMP_VELOCITY
-		angular_velocity = -3.0
-	if linear_velocity.y < 0.0:
-		rotation_degrees = -30
-	else:
-		rotation_degrees = 30
